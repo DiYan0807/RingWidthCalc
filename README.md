@@ -2,9 +2,9 @@
 Identify Z-ring or other ring like structure from rod-shape bacteria and calculate their width.
 
 ## Examples
-**example-WT-20-40.mat** is the structure from MicrobeJ.
+**example-WT-20-29.mat** is the structure from MicrobeJ.
 
-**RingImages-example-WT-20-40.tif** is the output images of mainScript.m.
+**RingImages-example-WT-20-29.tif** is the output images of mainScript.m.
 
 ## mainScript.m
 This is the main script to identify the Zring peaks and calculate the ring width
