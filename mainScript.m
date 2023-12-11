@@ -12,11 +12,11 @@
 % by Di Yan, 2023-12-11
 
 %% section 1. setup parameters
-minP = 40;         % Threshold for minimum peak intensity, used for findpeaks(Intensity_pass,'MinPeakHeight',minP ,...)
+minP = 10;         % Threshold for minimum peak intensity, used for findpeaks(Intensity_pass,'MinPeakHeight',minP ,...)
 D = 35;            % Threshold of the minimum distance between two rings, used for zringpeakfinder(Intensity_pass,minP,D); in pixel
-fpass = 0.003;     % Threshold for the highpass filter. used for highpass(Intensity_final,fpass,1,'steepness',0.95);
+fpass = 0.009;     % Threshold for the highpass filter. used for highpass(Intensity_final,fpass,1,'steepness',0.95);
 
-%% section 2: load the result from MicrobeJ structure, like example1-WT-20-40.mat
+%% section 2: load the result from MicrobeJ structure, like example1-WT-20-29.mat
 
 % select single or multiple structures to process
 [filename pathname] = uigetfile('.mat','Select the cell segment result from MicrobeJ','MultiSelect','on');
@@ -130,10 +130,10 @@ for ind_F = 1 : NumFile
         display(['Processing cell = ' num2str(ic) ' ...']);
     end
 % save all the data in the All_Data variable 
-    All_Data(:,1:2) = Cell_Index; %the file index and cell index 
+    All_Data(:,1:2) = Cell_Index; %the cell index and file index 
     All_Data(:,3) = All_ws;       %the ring width
-    All_Data(:,4) = All_pks;      %the peak heights
-    All_Data(:,5) = All_locs;     %the peak locations
+    All_Data(:,4) = All_pks;      %the peak height
+    All_Data(:,5) = All_locs;     %the peak location
     All_Data(:,6) = All_cell_len; %the cell length
     save([pathname FileTemp], 'Experiment','All_Data');
     clear Experiment R W Profile All_pks All_locs All_ws Peak_number Mean_cell_len All_cell_len Cell_length Cell_Index All_Data;
